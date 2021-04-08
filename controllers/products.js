@@ -27,7 +27,7 @@ exports.getSearchProduct_edit = (req, res, next) => {
     Product.fetchAll()
         .then(products => { 
             res.render('products/product', {
-                pageTitle: 'Search phone',
+                pageTitle: 'Search product',
                 prods: products,
             });
         })

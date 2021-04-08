@@ -1,0 +1,74 @@
+<%- include('../includes/head.ejs') %>
+    <%- include('../includes/navigation.ejs') %>
+
+  <!-- Start Products  -->
+  <div class="products-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="title-all text-center">
+                    <h1>Fruits & Vegetables</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="special-menu text-center">
+                    <div class="button-group filter-button-group">
+                        <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+                            <li class="nav-item"><a class="nav-link" href="/">ALL Products</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/vegetables">Vegetables</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/fruits">Fruits</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <% if (prods.length > 0) { %>
+                <% prods.map((product, index) => { %>
+            <div class="col-md-3 col-sm-6">
+                <div class="products-single fix">
+                    <div class="box-img-hover"> 
+                        <div class="type-lb">
+                            <p class="sale">Sale</p>
+                        </div>
+                        <div class="">
+                            <img src="<%- product.img_path%>" class="img-fluid" alt="Image">
+                        </div>  
+                        <div class="mask-icon">
+                            <ul>
+                                <li><a href="/products/detail/<%- product._id%>" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                <!-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> -->
+                            </ul>
+                            <a class="cart" href="#">Add to Cart</a>
+                        </div>
+                    </div>
+                    <div class="why-text">
+                        <form action="" method="get">
+                            <!-- <input type="hidden" id="product_id" name="product_id" value="<%= product._id %>"> -->
+                            <a href="<%- '/'+product._id%>"">
+                                <h2 class="newfont"><%- product.product_name%></h2>
+                            </a>
+                        </form> 
+                        <h5> ฿ <%- product.price%></h5>
+                    </div>
+                   
+                </div>
+            </div>
+            <% }) %>
+            <% } else   { %>
+            <h1>No Products Found!</h1>
+          <% } %>
+        </div>
+    </div>
+</div>
+<!-- End Products  -->
+
+
+
+<%- include('../includes/end.ejs') %>
+ 
